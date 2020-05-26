@@ -12,9 +12,6 @@
 # below:
 .git
 .gitignore
-.env.example
-composer.*
-webpack.mix.js
 
 # PHP Composer dependencies:
 /node_modules/

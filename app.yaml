@@ -6,3 +6,10 @@ runtime: php73
 # run a long-running PHP script as a worker process (e.g. "php worker.php").
 #
 entrypoint: serve public/index.php
+
+env_variables:
+  ## Put production environment variables here.
+  APP_KEY: base64:4V33Irv9UTUBG3ERF58Io/Qy2lLN4W2NB6AtLAy0fCU=
+  APP_STORAGE: /tmp
+  VIEW_COMPILED_PATH: /tmp
+  SESSION_DRIVER: file
