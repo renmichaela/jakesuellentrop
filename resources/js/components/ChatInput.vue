@@ -1,12 +1,18 @@
 <template>
-    <input
-        class="text-black"
-        type="text"
-        name="message"
-        id="message"
-        v-model="message"
-        @keydown.enter.prevent="sendMessage"
-    />
+    <div class="bg-gray-300 flex">
+        <input
+            class="text-black w-4/5 p-2"
+            type="text"
+            name="message"
+            id="message"
+            v-model="message"
+            @keydown.enter.prevent="sendMessage"
+            placeholder="Press 'Enter' to send"
+        />
+        <button type="button" @click="sendMessage" class="w-1/5 bg-blue-500">
+            Send
+        </button>
+    </div>
 </template>
 
 <script>

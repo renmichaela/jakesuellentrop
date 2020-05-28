@@ -1919,6 +1919,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1968,6 +1974,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1985,7 +1992,7 @@ __webpack_require__.r(__webpack_exports__);
     formatTimestamp: function formatTimestamp(timestamp) {
       var stamp = new Date(timestamp);
       var dateParts = [stamp.getMonth() + 1, stamp.getDate() + 1, stamp.getFullYear()];
-      var timeParts = [stamp.getHours() + 1, stamp.getMinutes() + 1];
+      var timeParts = [stamp.getHours(), stamp.getMinutes()];
       return dateParts.join("/") + " " + timeParts.join(":");
     }
   }
@@ -19592,37 +19599,54 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("input", {
-    directives: [
-      {
-        name: "model",
-        rawName: "v-model",
-        value: _vm.message,
-        expression: "message"
-      }
-    ],
-    staticClass: "text-black",
-    attrs: { type: "text", name: "message", id: "message" },
-    domProps: { value: _vm.message },
-    on: {
-      keydown: function($event) {
-        if (
-          !$event.type.indexOf("key") &&
-          _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-        ) {
-          return null
+  return _c("div", { staticClass: "bg-gray-300 flex" }, [
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.message,
+          expression: "message"
         }
-        $event.preventDefault()
-        return _vm.sendMessage($event)
+      ],
+      staticClass: "text-black w-4/5 p-2",
+      attrs: {
+        type: "text",
+        name: "message",
+        id: "message",
+        placeholder: "Press 'Enter' to send"
       },
-      input: function($event) {
-        if ($event.target.composing) {
-          return
+      domProps: { value: _vm.message },
+      on: {
+        keydown: function($event) {
+          if (
+            !$event.type.indexOf("key") &&
+            _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+          ) {
+            return null
+          }
+          $event.preventDefault()
+          return _vm.sendMessage($event)
+        },
+        input: function($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.message = $event.target.value
         }
-        _vm.message = $event.target.value
       }
-    }
-  })
+    }),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "w-1/5 bg-blue-500",
+        attrs: { type: "button" },
+        on: { click: _vm.sendMessage }
+      },
+      [_vm._v("\n        Send\n    ")]
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -19648,44 +19672,55 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "bg-gray-300 h-64 w-1/3 mx-auto rounded-md relative p-2" },
     [
-      _vm._l(_vm.chat, function(message, key) {
-        return _c(
-          "div",
-          { key: key, staticClass: "flex justify-end flex-wrap" },
-          [
-            _c(
-              "p",
-              {
-                staticClass: "bg-blue-500 rounded-full mb-1 p-1 w-1/2 text-left"
-              },
-              [_vm._v("\n            " + _vm._s(message.text) + "\n        ")]
-            ),
-            _vm._v(" "),
-            key == _vm.chat.length - 1
-              ? _c(
-                  "p",
-                  { staticClass: "text-xs text-gray-800 text-right w-full" },
-                  [
-                    _vm._v(
-                      "\n            " +
-                        _vm._s(_vm.formatTimestamp(message.timestamp)) +
-                        "\n        "
-                    )
-                  ]
-                )
-              : _vm._e()
-          ]
-        )
-      }),
+      _c(
+        "div",
+        { staticClass: "bg-gray-300 h-128 w-1/3 mx-auto p-2 overflow-scroll" },
+        _vm._l(_vm.chat, function(message, key) {
+          return _c(
+            "div",
+            { key: key, staticClass: "flex justify-end flex-wrap" },
+            [
+              _c(
+                "p",
+                {
+                  staticClass:
+                    "bg-blue-500 rounded-lg mb-1 px-2 py-1 w-1/2 text-left"
+                },
+                [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(message.text) +
+                      "\n            "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              key == _vm.chat.length - 1
+                ? _c(
+                    "p",
+                    { staticClass: "text-xs text-gray-800 text-right w-full" },
+                    [
+                      _vm._v(
+                        "\n                " +
+                          _vm._s(_vm.formatTimestamp(message.timestamp)) +
+                          "\n            "
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ]
+          )
+        }),
+        0
+      ),
       _vm._v(" "),
       _c("chat-input", {
-        staticClass: "absolute bottom-0 left-0 w-full rounded-full",
+        staticClass: "w-1/3 mx-auto",
         on: { "send-message": _vm.addMessageToChat }
       })
     ],
-    2
+    1
   )
 }
 var staticRenderFns = []

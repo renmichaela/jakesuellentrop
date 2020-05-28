@@ -1,24 +1,25 @@
 <template>
-    <div class="bg-gray-300 h-64 w-1/3 mx-auto rounded-md relative p-2">
-        <div
-            v-for="(message, key) in chat"
-            :key="key"
-            class="flex justify-end flex-wrap"
-        >
-            <p class="bg-blue-500 rounded-full mb-1 p-1 w-1/2 text-left">
-                {{ message.text }}
-            </p>
-            <p
-                class="text-xs text-gray-800 text-right w-full"
-                v-if="key == chat.length - 1"
+    <div>
+        <div class="bg-gray-300 h-128 w-1/3 mx-auto p-2 overflow-scroll">
+            <div
+                v-for="(message, key) in chat"
+                :key="key"
+                class="flex justify-end flex-wrap"
             >
-                {{ formatTimestamp(message.timestamp) }}
-            </p>
+                <p
+                    class="bg-blue-500 rounded-lg mb-1 px-2 py-1 w-1/2 text-left"
+                >
+                    {{ message.text }}
+                </p>
+                <p
+                    class="text-xs text-gray-800 text-right w-full"
+                    v-if="key == chat.length - 1"
+                >
+                    {{ formatTimestamp(message.timestamp) }}
+                </p>
+            </div>
         </div>
-        <chat-input
-            @send-message="addMessageToChat"
-            class="absolute bottom-0 left-0 w-full rounded-full"
-        />
+        <chat-input @send-message="addMessageToChat" class="w-1/3 mx-auto" />
     </div>
 </template>
 
@@ -48,7 +49,7 @@ export default {
                 stamp.getFullYear()
             ];
 
-            let timeParts = [stamp.getHours() + 1, stamp.getMinutes() + 1];
+            let timeParts = [stamp.getHours(), stamp.getMinutes()];
 
             return dateParts.join("/") + " " + timeParts.join(":");
         }
