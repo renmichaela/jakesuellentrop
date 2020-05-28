@@ -15,6 +15,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome')->name('welcome');
 
-Route::view('/alpine', 'alpine')->name('alpine');
-
 Route::view('/chat', 'chat')->name('chat');
