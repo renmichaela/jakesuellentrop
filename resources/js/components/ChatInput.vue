@@ -10,7 +10,7 @@
             placeholder="Press 'Enter' to send"
         />
         <button type="button" @click="sendMessage" class="w-1/5 bg-blue-500">
-            Send
+            SEND
         </button>
     </div>
 </template>
