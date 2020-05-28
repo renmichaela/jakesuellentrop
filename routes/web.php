@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'welcome')->name('welcome');
+Route::view('/', 'pages.welcome')->name('welcome');
 
-Route::view('/chat', 'chat')->name('chat');
+Route::view('/chat', 'pages.chat')->name('chat');
