@@ -68,7 +68,7 @@
                         :routes="{{ json_encode([
                             ['link' => route('welcome'), 'text' => 'Home'],
                             ['link' => route('chat'), 'text' => 'Chat App'],
-                            ['link' => 'https://github.com/jakesuellentrop', 'text' => 'Github']
+                            ['link' => 'https://github.com/jakesuellentrop/jakesuellentrop', 'text' => 'Github', 'external' => true]
                         ]) }}"/>
                 </div>
             </div>

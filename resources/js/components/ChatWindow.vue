@@ -33,11 +33,7 @@ export default {
 
     methods: {
         addMessageToChat(text) {
-            let message = {
-                text: text,
-                timestamp: Date.now()
-            };
-            this.chat.push(message);
+            this.chat.push({ text: text, timestamp: Date.now() });
         },
 
         formatTimestamp(timestamp) {

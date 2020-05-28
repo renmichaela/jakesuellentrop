@@ -1,6 +1,7 @@
 <template>
     <nav>
         <a
+            :target="[route.external ? '_blank' : '_self']"
             :href="route.link"
             :key="key"
             v-for="(route, key) in routes"
