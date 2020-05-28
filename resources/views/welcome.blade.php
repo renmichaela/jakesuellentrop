@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <div class="title m-b-md">
+    <div class="text-6xl mb-4">
         Jake Suellentrop
     </div>
 @endsection

@@ -5,6 +5,9 @@ module.exports = {
     },
     theme: {
         extend: {
+            fontFamily: {
+                body: ["Nunito", "sans-serif"]
+            },
             spacing: {
                 128: "32em"
             }
