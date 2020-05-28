@@ -73,10 +73,13 @@
                 </div>
 
                 <div class="bottom-0 fixed links h-12">
-                    <a href="{{ route('welcome') }}">Home</a>
-                    <a href="{{ route('chat') }}">Chat App</a>
-                    <a href="{{ route('alpine') }}">Alpine JS</a>
-                    <a href="https://github.com/jakesuellentrop">GitHub</a>
+                    <navigation
+                        current-route="{{ Request::url() }}"
+                        :routes="{{ json_encode([
+                            ['link' => route('welcome'), 'text' => 'Home'],
+                            ['link' => route('chat'), 'text' => 'Chat App'],
+                            ['link' => 'https://github.com/jakesuellentrop/jakesuellentrop', 'text' => 'Github', 'external' => true]
+                        ]) }}"/>
                 </div>
             </div>
         </div>
