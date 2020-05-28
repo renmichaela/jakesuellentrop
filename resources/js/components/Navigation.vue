@@ -4,8 +4,9 @@
             :href="route.link"
             :key="key"
             v-for="(route, key) in routes"
-            class="text-white"
-            :class="{ 'text-gray-500': route.link == currentRoute }"
+            :class="[
+                route.link == currentRoute ? 'text-white' : 'text-gray-500'
+            ]"
             >{{ route.text }}</a
         >
     </nav>
