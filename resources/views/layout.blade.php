@@ -74,8 +74,8 @@
 
                 <div class="bottom-0 fixed links h-12">
                     <a href="{{ route('welcome') }}">Home</a>
-                    <a href="{{ route('alpine') }}">Alpine JS</a>
                     <a href="{{ route('chat') }}">Chat App</a>
+                    <a href="{{ route('alpine') }}">Alpine JS</a>
                     <a href="https://github.com/jakesuellentrop">GitHub</a>
                 </div>
             </div>

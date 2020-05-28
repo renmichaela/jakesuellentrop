@@ -1958,6 +1958,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1965,8 +1975,18 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    addMessageToChat: function addMessageToChat(message) {
+    addMessageToChat: function addMessageToChat(text) {
+      var message = {
+        text: text,
+        timestamp: Date.now()
+      };
       this.chat.push(message);
+    },
+    formatTimestamp: function formatTimestamp(timestamp) {
+      var stamp = new Date(timestamp);
+      var dateParts = [stamp.getMonth() + 1, stamp.getDate() + 1, stamp.getFullYear()];
+      var timeParts = [stamp.getHours() + 1, stamp.getMinutes() + 1];
+      return dateParts.join("/") + " " + timeParts.join(":");
     }
   }
 });
@@ -19628,16 +19648,36 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "bg-gray-300 h-64 w-1/3 mx-auto rounded-md relative" },
+    { staticClass: "bg-gray-300 h-64 w-1/3 mx-auto rounded-md relative p-2" },
     [
       _vm._l(_vm.chat, function(message, key) {
-        return _c("div", { key: key, staticClass: "flex justify-end" }, [
-          _c(
-            "p",
-            { staticClass: "bg-blue-500 rounded-full m-2 p-1 w-1/2 text-left" },
-            [_vm._v("\n            " + _vm._s(message) + "\n        ")]
-          )
-        ])
+        return _c(
+          "div",
+          { key: key, staticClass: "flex justify-end flex-wrap" },
+          [
+            _c(
+              "p",
+              {
+                staticClass: "bg-blue-500 rounded-full mb-1 p-1 w-1/2 text-left"
+              },
+              [_vm._v("\n            " + _vm._s(message.text) + "\n        ")]
+            ),
+            _vm._v(" "),
+            key == _vm.chat.length - 1
+              ? _c(
+                  "p",
+                  { staticClass: "text-xs text-gray-800 text-right w-full" },
+                  [
+                    _vm._v(
+                      "\n            " +
+                        _vm._s(_vm.formatTimestamp(message.timestamp)) +
+                        "\n        "
+                    )
+                  ]
+                )
+              : _vm._e()
+          ]
+        )
       }),
       _vm._v(" "),
       _c("chat-input", {
