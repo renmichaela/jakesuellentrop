@@ -49,16 +49,6 @@
                 font-size: 84px;
             }
 
-            .links > a {
-                color: #fff;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
             .m-b-md {
                 margin-bottom: 30px;
             }
@@ -73,10 +63,14 @@
                 </div>
 
                 <div class="bottom-0 fixed links h-12">
-                    <a href="{{ route('welcome') }}">Home</a>
-                    <a href="{{ route('chat') }}">Chat App</a>
-                    <a href="{{ route('alpine') }}">Alpine JS</a>
-                    <a href="https://github.com/jakesuellentrop">GitHub</a>
+                    <navigation
+                        current-route="{{ Request::url() }}"
+                        :routes="{{ json_encode([
+                            ['link' => route('welcome'), 'text' => 'Home'],
+                            ['link' => route('chat'), 'text' => 'Chat App'],
+                            ['link' => route('alpine'), 'text' => 'Alpine JS'],
+                            ['link' => 'https://github.com/jakesuellentrop', 'text' => 'Github']
+                        ]) }}"/>
                 </div>
             </div>
         </div>
