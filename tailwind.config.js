@@ -1,5 +1,8 @@
 module.exports = {
-    purge: [],
+    purge: {
+        enabled: true,
+        content: ["./resources/views/*.php", "./resources/js/components/*.vue"]
+    },
     theme: {
         extend: {
             spacing: {
