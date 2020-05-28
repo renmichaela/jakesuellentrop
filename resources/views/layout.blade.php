@@ -65,21 +65,25 @@
         </style>
     </head>
     <body>
-        <div class="flex h-screen items-center justify-center relative">
+        <div id="app">
+            <div class="flex h-screen items-center justify-center relative">
 
-            <div class="content">
-                @yield('content')
-            </div>
+                <div class="content w-screen">
+                    @yield('content')
+                </div>
 
-            <div class="bottom-0 fixed links h-12">
-                <a href="{{ route('welcome') }}">Home</a>
-                <a href="{{ route('alpine') }}">Alpine JS</a>
-                <a href="https://laravel.com/docs">Docs</a>
-                <a href="https://laracasts.com">Laracasts</a>
-                <a href="https://laravel-news.com">News</a>
-                <a href="https://github.com/jakesuellentrop">GitHub</a>
+                <div class="bottom-0 fixed links h-12">
+                    <a href="{{ route('welcome') }}">Home</a>
+                    <a href="{{ route('alpine') }}">Alpine JS</a>
+                    <a href="{{ route('chat') }}">Chat App</a>
+                    <a href="https://laravel.com/docs">Docs</a>
+                    <a href="https://laracasts.com">Laracasts</a>
+                    <a href="https://laravel-news.com">News</a>
+                    <a href="https://github.com/jakesuellentrop">GitHub</a>
+                </div>
             </div>
         </div>
+        <script src="{{ asset('js/app.js') }}"></script>
         @yield('scripts')
     </body>
 </html>
