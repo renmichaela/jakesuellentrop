@@ -1,4 +1,9 @@
-//
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
 body {
     background-image: url("../img/willian-justen-de-vasconcellos-_MMP5j_fCqw-unsplash.jpg");
     background-size: cover;
