@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'pages.welcome')->name('welcome');
 
 Route::view('/chat', 'pages.chat')->name('chat');
+
+Route::name('tweet-to-json.')->prefix('tweet-to-json')->group(function() {
+    Route::get('tweet', 'TweetToJsonController@index')->name('index');
+    Route::get('tweet/get', 'TweetToJsonController@getTweet')->name('get');
+});

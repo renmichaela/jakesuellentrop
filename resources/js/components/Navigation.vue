@@ -5,6 +5,7 @@
             :href="route.link"
             :key="key"
             v-for="(route, key) in routes"
+            class="border border-solid border-transparent hover:border-white py-2 px-6 mx-2 no-underline uppercase font-semibold text-sm"
             :class="[
                 route.link == currentRoute ? 'text-white' : 'text-gray-500'
             ]"
@@ -30,11 +31,6 @@ export default {
 
 <style scoped>
 a {
-    padding: 0 25px;
-    font-size: 13px;
-    font-weight: 600;
     letter-spacing: 0.1rem;
-    text-decoration: none;
-    text-transform: uppercase;
 }
 </style>

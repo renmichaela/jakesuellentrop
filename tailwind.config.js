@@ -1,8 +1,5 @@
 module.exports = {
-    purge: {
-        enabled: true,
-        content: ["./resources/views/*.php", "./resources/js/components/*.vue"]
-    },
+    purge: ["./resources/views/**/*.php", "./resources/js/components/*.vue"],
     theme: {
         extend: {
             fontFamily: {
