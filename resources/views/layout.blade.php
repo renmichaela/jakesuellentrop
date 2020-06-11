@@ -22,6 +22,7 @@
                         current-route="{{ Request::url() }}"
                         :routes="{{ json_encode([
                             ['link' => route('welcome'), 'text' => 'Home'],
+                            ['link' => route('memes.index'), 'text' => 'Memes'],
                             ['link' => route('chat'), 'text' => 'Chat App'],
                             ['link' => route('tweet-to-json.index'), 'text' => 'Tweet to JSON'],
                             ['link' => 'https://github.com/jakesuellentrop/jakesuellentrop', 'text' => 'Github', 'external' => true]
