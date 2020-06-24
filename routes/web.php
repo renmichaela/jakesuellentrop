@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'pages.welcome')->name('welcome');
+Auth::routes();
 
+Route::view('/', 'pages.welcome')->name('welcome');
 Route::view('/chat', 'pages.chat')->name('chat');
+Route::view('/components', 'pages.components')->name('components');
+
+Route::get('/memes', 'MemeController@index')->name('memes.index');
+Route::post('/memes', 'MemeController@upload')->name('memes.upload');
 
 Route::name('tweet-to-json.')->prefix('tweet-to-json')->group(function() {
     Route::get('tweet', 'TweetToJsonController@index')->name('index');

@@ -6,7 +6,8 @@ module.exports = {
                 body: ["Nunito", "sans-serif"]
             },
             spacing: {
-                128: "32em"
+                128: "32em",
+                "1/2": "50%"
             }
         }
     },
