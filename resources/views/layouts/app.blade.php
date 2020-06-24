@@ -11,6 +11,13 @@
     </head>
     <body class="bg-white font-thin h-screen m-0 font-body">
         <div id="app">
+            @auth
+            <logout-link route="{{ route('logout') }}">
+                <template v-slot:csrf>
+                    @csrf
+                </template>
+            </logout-link>
+            @endauth
             <div class="flex h-screen items-center justify-center relative">
 
                 <div class="content text-center w-screen">
@@ -22,6 +29,7 @@
                         current-route="{{ Request::url() }}"
                         :routes="{{ json_encode([
                             ['link' => route('welcome'), 'text' => 'Home'],
+                            ['link' => route('components'), 'text' => 'Vue Components'],
                             ['link' => route('memes.index'), 'text' => 'Memes'],
                             ['link' => route('chat'), 'text' => 'Chat App'],
                             ['link' => route('tweet-to-json.index'), 'text' => 'Tweet to JSON'],

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,8 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
+
 Route::view('/', 'pages.welcome')->name('welcome');
 Route::view('/chat', 'pages.chat')->name('chat');
+Route::view('/components', 'pages.components')->name('components');
 
 Route::get('/memes', 'MemeController@index')->name('memes.index');
 Route::post('/memes', 'MemeController@upload')->name('memes.upload');
